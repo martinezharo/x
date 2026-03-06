@@ -33,7 +33,10 @@ const people = [
 	<div id="follow-container">
 		{
 			people.map((person) => (
-				<div class="flex items-center px-5 py-2 justify-between border-b border-white/10 first:border-t first:border-white/10">
+				<div class="flex items-center justify-between
+				px-5 py-2 border-b border-white/10
+				first:border-t first:border-white/10"
+				>
 					<div class="flex items-center gap-2">
 						<img src={person.img} class="w-10 aspect-square rounded-full object-cover" />
 						<span class="names-container">
