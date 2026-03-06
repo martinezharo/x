@@ -52,8 +52,9 @@ const people = [
 	const container = document.querySelector("#follow-container");
 
 	container?.addEventListener("click", (e) => {
-	if (e?.target?.classList.contains("follow")) {
-		e.target.classList.toggle("following");
+	const target = e.target as HTMLElement;
+	if (target.classList.contains("follow")) {
+		target.classList.toggle("following");
 	}
 });
 </script>
