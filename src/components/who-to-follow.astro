@@ -1,5 +1,8 @@
 ---
-import people from '../data.js';
+import people from "../data.js";
+
+const FOLLOWING = "bg-transparent text-zinc-200 hover:bg-red-900/15 before:content-['Following'] hover:before:content-['Unfollow']"
+const FOLLOW = "bg-zinc-200 text-gray-900 hover:bg-white  before:content-['Follow']"
 ---
 
 <section id="follow-section" class="w-full">
@@ -7,37 +10,43 @@ import people from '../data.js';
 	<div id="follow-container">
 		{
 			people.map((person) => (
-				<div class="flex items-center justify-between
+				<div
+					class="flex items-center justify-between
 				px-5 py-2 border-b border-white/10
 				first:border-t first:border-white/10"
 				>
 					<div class="flex items-center gap-2">
-						<img src={person.img} class="w-10 aspect-square rounded-full object-cover" />
+						<img
+							src={person.img}
+							class="w-10 aspect-square rounded-full object-cover"
+						/>
 						<span class="names-container">
 							<div class="font-bold text-base">{person.name}</div>
-							<div class="font-thin text-sm">@{person.username}</div>
+							<div class="font-thin text-sm">
+								@{person.username}
+							</div>
 						</span>
 					</div>
-					<button class="follow before:content-['Follow']
-					text-sm font-bold text-gray-900 bg-zinc-200
-					px-3 py-1 rounded-full
-					hover:bg-white ease-in-out duration-150"
-					>
-
-					</button>
+					<button
+						class={`follow min-w-[85px] px-3 py-1 rounded-full
+					text-xs font-bold ease-in-out duration-150
+					border border-zinc-200/20
+					${person.isFollowing ? FOLLOWING : FOLLOW}
+					`}
+					></button>
 				</div>
 			))
 		}
 	</div>
 </section>
 
-<script>
+<!-- <script>
 	const container = document.querySelector("#follow-container");
 
 	container?.addEventListener("click", (e) => {
-	const target = e.target as HTMLElement;
-	if (target.classList.contains("follow")) {
-		target.classList.toggle("following");
-	}
-});
-</script>
+		const target = e.target as HTMLElement;
+		if (target.classList.contains("follow")) {
+			target.classList.toggle("following");
+		}
+	});
+</script> -->
